@@ -27,3 +27,9 @@ jobs:
 
       - name: build docker image
         run: docker build -t garciamendes/nlw-journey-devops:${{ steps.generate_sha.outputs.sha }} .
+
+      - name: Push image
+        run: |
+          docker push garciamendes/nlw-journey-devops:${{ steps.generate_sha.outputs.sha }}
+          docker tag garciamendes/nlw-journey-devops:${{ steps.generate_sha.outputs.sha }} garciamendes/nlw-journey-devops:latest
+          docker push garciamendes/nlw-journey-devops:latest
