@@ -1,1 +1,17 @@
+name: CI
 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    name: Build and push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: build docker image
+        run: docker build -t garciamendes/nlw-journey-devops:latest
