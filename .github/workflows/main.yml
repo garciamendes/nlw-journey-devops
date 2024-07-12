@@ -13,5 +13,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Generate SHA
+        id: generate_sha
+        run: |
+          SHA=${echo $GITHUB_SHA | head -c7}
+          echo "sha=$SHA" >> $GITHUB_OUTPUT
+
       - name: build docker image
-        run: docker build -t garciamendes/nlw-journey-devops:latest .
+        run: docker build -t garciamendes/nlw-journey-devops:${{ steps.generate_sha.outputs.sha }} .
