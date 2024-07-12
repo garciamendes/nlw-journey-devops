@@ -118,7 +118,7 @@ func (api *API) PostTrips(w http.ResponseWriter, r *http.Request) *spec.Response
 
 // Get a trip details.
 // (GET /trips/{tripId})
-func (API) GetTripsTripID(w http.ResponseWriter, r *http.Request, tripID string) *spec.Response {
+func (api *API) GetTripsTripID(w http.ResponseWriter, r *http.Request, tripID string) *spec.Response {
 	panic("not implemented") // TODO: Implement
 }
 
